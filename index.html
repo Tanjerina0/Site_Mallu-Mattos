@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mallu Mattos- História e Trajetória</title>
+
+
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #fff5f8;
+        color: #1c1c1c;
+    }
+ /* =========================
+     ANIMAÇÕES
+ ========================= */
+
+ @keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ @keyframes aparecerLateral {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+ @keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+ @keyframes pulsar {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(255,159,189,0.55);
+    }
+}
+ @keyframes brilho {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+    /* =========================
+         MENU
+    ========================= */
+
+    header {
+        background: #8f1748;
+        width: 100%;
+        height: 80px;
+        padding: 18px 8%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.20);
+
+    animation: aparecer 0.6s ease;
+}
+
+
+    #menuPrincipal {
+        display: none;
+    }
+
+    /* BOTÃO DO MENU */
+
+    .menu-botao {
+        position: fixed;
+        top: 18px;
+        left: 20px;
+
+        width: 45px;
+        height: 45px;
+
+        background: transparent;
+        border: none;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+
+        cursor: pointer;
+        z-index: 200;
+    }
+
+    .menu-botao span {
+        display: block;
+
+        width: 30px;
+        height: 4px;
+
+        background: white;
+        border-radius: 5px;
+
+        transition: 0.3s;
+    }
+
+    .menu-botao:hover span:nth-child(1) {
+    transform: translateX(5px);
+ }
+    .menu-botao:hover span:nth-child(3) {
+    transform: translateX(-5px);
+ }
+
+
+    /* MENU LATERAL */
+
+    .menu-lateral {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 320px;
+        max-width: 85%;
+        height: 100dvh;
+
+        background: #fff5f8;
+
+        z-index: 150;
+
+        transform: translateX(-100%);
+
+        transition: transform 0.4s ease;
+
+        padding: 100px 40px;
+
+        box-shadow: 5px 0 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-lateral ul {
+        list-style: none;
+    }
+
+    .menu-lateral li {
+        margin-bottom: 25px;
+        animation: aparecerLateral 0.5s ease both;
+}
+
+    .menu-lateral li:nth-child(1) {
+        animation-delay: 0.05s;
+    } 
+     
+    .menu-lateral li:nth-child(2) {
+    animation-delay: 0.10s;
+}
+    .menu-lateral li:nth-child(3) {
+    animation-delay: 0.15s;
+}
+    .menu-lateral li:nth-child(4) {
+    animation-delay: 0.20s;
+}
+    .menu-lateral li:nth-child(5) {
+    animation-delay: 0.25s;
+}
+    .menu-lateral li:nth-child(6) {
+    animation-delay: 0.30s;
+}
+
+   .menu-lateral a {
+        color: #8f1748;
+
+        text-decoration: none;
+
+        font-size: 22px;
+        font-weight: bold;
+
+        transition: 0.3s;
+    }
+
+    .menu-lateral a:hover {
+        color: #d94f7d;
+        padding-left: 8px;
+    }
+
+    /* FUNDO TRANSPARENTE */
+
+    .fundo-menu {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100dvh;
+
+        background: rgba(0, 0, 0, 0.45);
+
+        z-index: 140;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity 0.4s ease;
+    }
+
+    .menu-lateral.aberto {
+        transform: translateX(0);
+    }
+
+    .fundo-menu.aberto {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* LOGO */
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+
+        animation: aparecer 0.8s ease;
+    }
+
+    /* =========================
+         TELA INICIAL
+    ========================= */
+
+    .inicio {
+        min-height: 100dvh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 40px 20px;
+
+        background:
+            radial-gradient(circle at top left, #ffb6d0, transparent 35%),
+            linear-gradient(
+                135deg,
+                #6e1238,
+                #a91f55,
+                #e76f9b,
+                #ffc5d9
+            );
+      background-size: 200% 200%;
+      animation: brilho 12s ease infinite;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .inicio::before {
+        content: "";
+        position: absolute;
+
+        width: 350px;
+        height: 350px;
+
+        border-radius: 50%;
+
+        background: rgba(255,255,255,0.12);
+
+        top: -100px;
+        right: -100px;
+
+        animation: flutuar 5s ease-in-out infinite;
+    }
+
+.inicio::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    bottom: -100px;
+    left: -80px;
+    animation: flutuar 6s ease-in-out infinite reverse;
+}
+
+
+    .inicio > div {
+        position: relative;
+        z-index: 2;
+    }
+
+    .inicio h1 {
+        font-size: 65px;
+    margin-bottom: 15px;
+    color: white;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    animation: aparecer 1s ease;
+    }
+
+    .inicio p {
+    font-size: 21px;
+    color: white;
+    margin-bottom: 35px;
+    animation: aparecer 1s ease 0.25s both;
+}
+
+    /* BOTÃO COMEÇAR */
+
+    .botao {
+        display: inline-block;
+
+        padding: 15px 35px;
+
+        background: white;
+        color: #8f1748;
+
+        border-radius: 30px;
+
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 17px;
+
+        border: none;
+
+        box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+
+        transition: 0.3s;
+
+            animation:
+        aparecer 1s ease 0.5s both,
+        pulsar 2.5s ease-in-out 1.5s infinite;
+ }
+
+    .botao:hover {
+        transform: scale(1.08) translateY(-3px);
+        background: #ffe3ed;
+    }
+
+ /* =========================
+     ESCONDER TELAS
+ ========================= */
+.inicio.escondido {
+    display: none;
+}
+.segunda-tela.escondida {
+    display: none;
+}
+.tela-escondida {
+    display: none;
+}
+
+
+    /* =========================
+         SEÇÕES
+    ========================= */
+
+    section {
+        padding: 90px 10%;
+    }
+
+    section h2 {
+        text-align: center;
+
+        font-size: 38px;
+
+        color: #8f1748;
+
+        margin-bottom: 40px;
+
+        text-shadow: 0 2px 8px rgba(143,23,72,0.12);
+
+            animation: aparecer 0.7s ease;
+}
+
+    .segunda-tela {
+        min-height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background: #fff5f8;
+
+        scroll-margin-top: 80px;
+
+            animation: aparecer 0.7s ease;
+}
+
+    #historia,
+    #atuacao,
+    #Propostas,
+    #video {
+        min-height: 100dvh;
+        background: #fff5f8;
+    }
+
+    /* =========================
+         CAIXAS
+    ========================= */
+
+    .caixa {
+        max-width: 900px;
+
+        margin: auto;
+
+        background: white;
+
+        padding: 35px;
+
+        border-radius: 20px;
+
+        border: 1px solid #ffd5e3;
+
+        box-shadow:
+            0 8px 25px rgba(143,23,72,0.10);
+
+        line-height: 1.7;
+
+        font-size: 18px;
+
+            animation: aparecer 0.8s ease 0.15s both;
+             transition: 0.3s;
+}
+
+      .caixa:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 30px rgba(143,23,72,0.15);
+}
+
+    .caixa strong {
+        color: #a91f55;
+    }
+
+    /* =========================
+         BOTÕES
+    ========================= */
+
+    button {
+        border: none;
+
+        padding: 14px 25px;
+
+        border-radius: 25px;
+
+        background: #a91f55;
+
+        color: white;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        box-shadow: 0 5px 15px rgba(143,23,72,0.18);
+
+        transition: 0.3s;
+    }
+
+     button:hover {
+        background: #6e1238;
+        transform: translateY(-3px) scale(1.03);
+        box-shadow:
+        0 8px 20px rgba(143,23,72,0.30);
+}
+
+     button:active {
+    transform: scale(0.97);
+ }
+
+
+
+    /* =========================
+         CARDS
+    ========================= */
+
+    .cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(220px, 1fr));
+
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+
+        padding: 30px;
+
+        border-radius: 20px;
+
+        text-align: center;
+
+        border: 1px solid #ffd5e3;
+
+        box-shadow:
+            0 7px 20px rgba(143,23,72,0.09);
+
+        transition: 0.3s;
+
+            animation: aparecer 0.7s ease both;
+}
+
+    .card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+    .card:nth-child(2) {
+    animation-delay: 0.20s;
+}
+    .card:nth-child(3) {
+    animation-delay: 0.30s;
+}
+    .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow:
+        0 15px 35px rgba(143,23,72,0.18);
+        border-color: #ff9fbd;
+}
+
+    .card h3 {
+        color: #a91f55;
+
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        line-height: 1.6;
+    }
+
+    /* =========================
+         TÍTULO + FOTO
+    ========================= */
+
+    .titulo-com-foto {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 25px;
+
+        margin-bottom: 35px;
+            animation: aparecer 0.8s ease;
+}
+
+    .titulo-com-foto h2 {
+        margin-bottom: 0;
+    }
+
+    .foto-perfil img {
+        width: 150px;
+        height: 150px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        border: 5px solid white;
+
+        box-shadow:
+            0 5px 20px rgba(143,23,72,0.20);
+
+        animation: flutuar 4s ease-in-out infinite;
+
+            transition: 0.4s;
+}
+
+.foto-perfil img:hover {
+    transform: scale(1.08);
+    box-shadow:
+        0 10px 30px rgba(143,23,72,0.30);
+}
+
+    /* =========================
+          VÍDEO
+    ========================= */
+
+    .video {
+        text-align: center;
+            animation: aparecer 0.8s ease;
+}
+
+    .video-box {
+        max-width: 800px;
+
+        margin: auto;
+
+        background:
+            linear-gradient(
+                135deg,
+                #1c1c1c,
+                #3a1725,
+                #61183b
+            );
+
+        color: white;
+
+        padding: 70px 20px;
+
+        border-radius: 20px;
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,0.20);
+
+                transition: 0.4s;
+}
+.video-box:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.30);
+}
+
+/* BOTÃO DO TIKTOK */
+
+.botao-video {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background: #ff4f81;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 17px;
+
+    box-shadow:
+        0 5px 15px rgba(255,79,129,0.30);
+
+    transition: 0.3s;
+}
+
+.botao-video:hover {
+    background: #8f1748;
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 8px 25px rgba(143,23,72,0.40);
+}
+
+    /* =========================
+          RODAPÉ
+    ========================= */
+
+    footer {
+        background: #1c1c1c;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 40px 20px;
+    }
+
+    footer h3 {
+        color: #ff9fbd;
+    }
+
+    footer a {
+        color: #ffb6cc;
+    }
+
+
+    /* =========================
+       COMPATIBILIDADE IOS / SAFARI
+    ========================= */
+    html {
+        min-height: 100%;
+        background: #fff5f8;
+    }
+
+    body {
+        min-height: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        .inicio,
+        .segunda-tela,
+        #historia,
+        #atuacao,
+        #Propostas,
+        #video {
+            min-height: 100dvh;
+        }
+
+        .menu-lateral,
+        .fundo-menu {
+            height: 100dvh;
+        }
+    }
+
+    /* =========================
+         CELULAR
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        .inicio h1 {
+            font-size: 42px;
+        }
+
+        .inicio p {
+            font-size: 18px;
+        }
+
+        section {
+            padding: 70px 6%;
+        }
+
+        section h2 {
+            font-size: 30px;
+        }
+
+        .titulo-com-foto {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu-lateral {
+            width: 280px;
+        }
+
+        .caixa {
+            padding: 25px;
+            font-size: 16px;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .inicio::before {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+ /* =========================
+     ACESSIBILIDADE
+ ========================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+      <!-- MENU -->
+    <header id="menuPrincipal">
+          
+        <button class="menu-botao" onclick="abrirMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+           <div class="logo">Mallu Mattos</div>
+
+     </header>
+
+      <!-- MENU LATERAL -->
+
+            <div class="menu-lateral">
+
+    <nav>
+        <ul>
+
+            <li>
+                <a href="javascript:void(0)" onclick="voltarInicio()">
+                    🏠 Início
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" onclick="mostrarQuem()">
+                    👩 Quem é
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" onclick="mostrarHistoria(); fecharMenu()">
+                    📖 História
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" onclick="mostrarAtuacao(); fecharMenu()">
+                    ⭐ Atuação
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" onclick="mostrarPropostas(); fecharMenu()">
+                    💡 Propostas
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" onclick="mostrarVideo(); fecharMenu()">
+                    🎬 Vídeo
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+</div>
+
+    <div class="fundo-menu" onclick="fecharMenu()"></div>
+
+
+ <!-- =========================
+     INÍCIO
+ ========================= -->
+    <section class="inicio">
+        <div>
+            <h1>Mallu Mattos</h1>
+
+            <p>
+                Conheça sua história, trajetória e importância.
+            </p>
+
+            <button class="botao" onclick="comecarSite()">
+                Começar
+          </button>
+        </div>
+    </section>
+
+
+<!-- =========================
+     QUEM É
+========================= -->
+
+    <section id="quem" class="segunda-tela escondida">
+
+      <div class="titulo-com-foto">
+
+        <h2>👩 Quem é Mallu Mattos?</h2>
+
+        <div class="foto-perfil">
+
+            <img
+             src="foto.jpeg" 
+             alt="Foto de Mallu Mattos">
+        </div>
+
+     </div>
+
+    <div class="caixa">
+          <p>
+                <strong>Mallu Mattos</strong> é o nome público de
+            <strong>Maria Lucia Meneses Mattos</strong>, nascida em
+            São Paulo em 20 de novembro de 1983.
+        </p>
+
+            <br>
+
+            <p>
+                Sua trajetória profissional está ligada ao empreendedorismo
+            e à área de vendas. Em seu perfil profissional, Mallu afirma
+            ter mais de 25 anos de experiência em vendas e relata ter
+            iniciado sua trajetória profissional aos 14 anos.
+         </p>
+
+           <br>
+        
+         <p>
+            Além de sua atuação profissional, Mallu também desenvolve o
+            projeto <strong>Cast das Poderosas</strong>, um podcast voltado
+            para histórias de mulheres, suas experiências e superações.
+         </p>
+
+          </div>
+              <div style="text-align: center; margin-top: 30px;">
+                    <button onclick="mostrarHistoria()">
+            Próximo: História →
+        </button>
+    </div>
+</section>
+
+
+    <!-- HISTÓRIA -->
+    <section id="historia" class="tela-escondida">
+
+        <h2>📖 Sua história</h2>
+
+        <div class="caixa">
+            <p>
+               Maria Lucia Meneses Mattos nasceu em
+            <strong>São Paulo, em 20 de novembro de 1983</strong>.
+            Sua formação declarada é de Ensino Médio completo.
+            </p>
+
+            <br>
+
+            <p>
+               De acordo com seu perfil profissional, Mallu construiu uma
+            trajetória de mais de duas décadas ligada à área de vendas
+            e ao empreendedorismo. Ela afirma ter começado a trabalhar
+            aos 14 anos, experiência que faz parte da narrativa de sua
+            trajetória profissional.
+            </p>
+
+            <br>
+
+            <p>
+                 Ao longo dos anos, também passou a desenvolver atividades
+            relacionadas à comunicação e à inspiração de outras pessoas.
+            Entre seus projetos está o <strong>Cast das Poderosas</strong>,
+            criado para dar espaço a histórias de mulheres e falar sobre
+            experiências, decisões e superação.
+            </p>
+
+            <br>
+
+             <p>
+            Na vida política, Mallu Mattos concorreu ao cargo de
+            vereadora de São Paulo nas eleições de 2024 pelo UNIÃO,
+            utilizando o número 44567. Naquele pleito, recebeu
+            <strong>1.281 votos</strong> e ficou como suplente.
+             </p>
+
+           <br>
+
+            <p>
+            Em 2026, seu nome aparece novamente no processo eleitoral,
+            desta vez como candidata a deputada federal por São Paulo
+            pelo UNIÃO, com o número <strong>4443</strong>.
+         </p>
+
+         </div>
+             <div style="text-align: center; margin-top: 30px;">
+        <button onclick="voltarQuem()">
+            ← Voltar: Quem é
+        </button>
+
+        <button
+            onclick="mostrarAtuacao()"
+            style="margin-left:10px;"
+        >
+            Próximo: Atuação →
+        </button>
+
+        </div>
+
+    </section>
+
+ <!-- =========================
+      ATUAÇÃO
+ ========================= -->
+   <section id="atuacao" class="tela-escondida">
+
+    <h2>⭐ Sua atuação</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>💼 Empreendedorismo</h3>
+
+            <p>
+                Mallu apresenta em seu perfil profissional uma trajetória
+                de mais de 25 anos de experiência em vendas e atuação como
+                empreendedora.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎙️ Cast das Poderosas</h3>
+
+            <p>
+                 É uma das responsáveis pelo projeto Cast das Poderosas,
+                podcast que busca dar voz a mulheres e apresentar histórias
+                de experiências, desafios e superações.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🗳️ Participação política</h3>
+
+            <p>
+                Mallu também passou a participar da política eleitoral.
+                Em 2024, concorreu a vereadora de São Paulo pelo UNIÃO.
+                Em 2026, aparece como candidata a deputada federal pelo
+                mesmo partido.
+            </p>
+
+        </div>
+
+    </div>
+      <div style="text-align: center; margin-top: 30px;">
+        <button onclick="voltarHistoria()">
+            ← Voltar: História
+        </button>
+
+        <button
+            onclick="mostrarPropostas()"
+            style="margin-left: 10px;"
+        >
+            Próximo: Propostas →
+        </button>
+    </div>
+
+</section>
+
+<!-- =========================
+    PROPOSTAS E IDEIAS
+========================= -->
+    <section id="Propostas" class="tela-escondida">
+
+    <h2>💡 Propostas e ideias</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>👩 Voz para mulheres</h3>
+
+            <p>
+                O Cast das Poderosas é apresentado como um espaço para
+                ouvir histórias de mulheres e compartilhar experiências
+                de vida, decisões e superações.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 Empreendedorismo</h3>
+
+            <p>
+              A experiência profissional de Mallu está relacionada ao
+                empreendedorismo e às vendas, áreas que aparecem como
+                importantes elementos de sua trajetória.
+            </p>
+        </div>
+
+        <div class="card">
+
+            <h3>🌱 Superação e inspiração</h3>
+            <p>
+                 Em seus conteúdos e palestras, Mallu aborda temas como
+                confiança, sonhos, resiliência e desenvolvimento pessoal,
+                buscando incentivar pessoas a enfrentarem desafios e
+                procurarem novas possibilidades.
+            </p>
+        </div>
+
+    </div>
+     <div style="text-align: center; margin-top: 30px;">
+        <button onclick="voltarAtuacao()">
+            ← Voltar: Atuação
+        </button>
+
+        <button
+            onclick="mostrarVideo()"
+            style="margin-left: 10px;"
+        >
+            Próximo: Podcast →
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     VÍDEO
+========================= -->
+    <section id="video" class="tela-escondida">
+
+    <h2>🎬 Nosso vídeo</h2>
+
+    <div class="video">
+        <div class="video-box">
+
+    <h3>🎬 Vídeo de Mallu Mattos</h3>
+
+    <p>
+        Assista ao vídeo diretamente no TikTok:
+    </p>
+
+    <br>
+
+    <a href="https://vt.tiktok.com/ZSqu8mTCR/" target="_blank" class="botao-video">
+        ▶️ Assistir no TikTok
+    </a>
+
+       </div>
+    </div>
+     <div style="text-align: center; margin-top: 30px;">
+                <button onclick="voltarPropostas()">
+            ← Voltar: Propostas
+        </button>
+
+    </div>
+
+</section>
+
+
+ <!-- =========================
+      FONTES
+========================= -->
+    <footer>
+
+        <h3>📚 Fontes</h3>
+
+        <br>
+
+        <p>
+           Folha de S.Paulo — Perfil de Mallu Mattos nas eleições municipais
+        de 2024.
+        </p>
+
+        <br>
+
+        <p>
+             Tribunal Superior Eleitoral — dados públicos das candidaturas
+        eleitorais.
+        </p>
+
+        <br>
+
+        <p>
+        Perfil profissional de Maria Lucia (Mallu Mattos) no LinkedIn.
+    </p>
+
+    <p>
+        Dinâmica
+    </p>
+
+    </footer>
+
+
+ <!-- =========================
+     JAVASCRIPT
+========================= -->
+
+    <script>
+    /*
+     * Navegação compatível com Safari/iOS.
+     * As seções são alternadas sem scroll suave durante a troca de tela.
+     */
+
+    function getInicio() {
+        return document.querySelector(".inicio");
+    }
+
+    function getMenuPrincipal() {
+        return document.querySelector("#menuPrincipal");
+    }
+
+    function fecharMenu() {
+        const menu = document.querySelector(".menu-lateral");
+        const fundo = document.querySelector(".fundo-menu");
+
+        if (menu) menu.classList.remove("aberto");
+        if (fundo) fundo.classList.remove("aberto");
+
+        document.body.style.overflow = "";
+    }
+
+    function abrirMenu() {
+        const menu = document.querySelector(".menu-lateral");
+        const fundo = document.querySelector(".fundo-menu");
+
+        if (!menu || !fundo) return;
+
+        menu.classList.add("aberto");
+        fundo.classList.add("aberto");
+
+        document.body.style.overflow = "hidden";
+    }
+
+    function esconderTodas() {
+        const secoes = [
+            "#quem",
+            "#historia",
+            "#atuacao",
+            "#Propostas",
+            "#video"
+        ];
+
+        secoes.forEach(function(seletor) {
+            const elemento = document.querySelector(seletor);
+
+            if (elemento) {
+                elemento.classList.add("tela-escondida");
+                elemento.classList.add("escondida");
+            }
+        });
+    }
+
+    function irParaTopo() {
+        // "auto" é intencional: evita o problema de smooth scrolling
+        // em algumas versões do Safari/iOS.
+        window.scrollTo(0, 0);
+    }
+
+    function mostrarSecao(id) {
+        const secao = document.querySelector(id);
+        if (!secao) return;
+
+        esconderTodas();
+
+        secao.classList.remove("tela-escondida");
+        secao.classList.remove("escondida");
+
+        fecharMenu();
+
+        // Deixa o Safari terminar a alteração do DOM antes de reposicionar.
+        requestAnimationFrame(function() {
+            irParaTopo();
+        });
+    }
+
+    function comecarSite() {
+        const inicio = getInicio();
+        const quem = document.querySelector("#quem");
+        const menuPrincipal = getMenuPrincipal();
+
+        if (!inicio || !quem) return;
+
+        // 1. Esconde a tela inicial.
+        inicio.classList.add("escondido");
+
+        // 2. Mostra somente "Quem é".
+        esconderTodas();
+        quem.classList.remove("escondida");
+        quem.classList.remove("tela-escondida");
+
+        // 3. O menu aparece somente depois do Começar.
+        if (menuPrincipal) {
+            menuPrincipal.style.display = "block";
+        }
+
+        fecharMenu();
+
+        requestAnimationFrame(function() {
+            irParaTopo();
+        });
+    }
+
+    function mostrarQuem() {
+        mostrarSecao("#quem");
+    }
+
+    function mostrarHistoria() {
+        mostrarSecao("#historia");
+    }
+
+    function voltarQuem() {
+        mostrarSecao("#quem");
+    }
+
+    function mostrarAtuacao() {
+        mostrarSecao("#atuacao");
+    }
+
+    function voltarHistoria() {
+        mostrarSecao("#historia");
+    }
+
+    function mostrarPropostas() {
+        mostrarSecao("#Propostas");
+    }
+
+    function voltarAtuacao() {
+        mostrarSecao("#atuacao");
+    }
+
+    function mostrarVideo() {
+        mostrarSecao("#video");
+    }
+
+    function voltarPropostas() {
+        mostrarSecao("#Propostas");
+    }
+
+    function voltarInicio() {
+        const inicio = getInicio();
+        const menuPrincipal = getMenuPrincipal();
+
+        esconderTodas();
+
+        if (inicio) {
+            inicio.classList.remove("escondido");
+        }
+
+        if (menuPrincipal) {
+            menuPrincipal.style.display = "none";
+        }
+
+        fecharMenu();
+
+        requestAnimationFrame(function() {
+            irParaTopo();
+        });
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            fecharMenu();
+        }
+    });
+
+    window.addEventListener("resize", function() {
+        fecharMenu();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const inicio = getInicio();
+        const menuPrincipal = getMenuPrincipal();
+
+        esconderTodas();
+
+        if (window.location.hash === "#video") {
+            if (inicio) {
+                inicio.classList.add("escondido");
+            }
+
+            const video = document.querySelector("#video");
+
+            if (video) {
+                video.classList.remove("tela-escondida");
+                video.classList.remove("escondida");
+            }
+
+            if (menuPrincipal) {
+                menuPrincipal.style.display = "block";
+            }
+        } else {
+            // Estado inicial: somente a capa fica visível.
+            if (inicio) {
+                inicio.classList.remove("escondido");
+            }
+
+            if (menuPrincipal) {
+                menuPrincipal.style.display = "none";
+            }
+        }
+
+        fecharMenu();
+    });
+</script>
+
+
+</body>
+</html>
